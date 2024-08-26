@@ -1,5 +1,8 @@
 FROM python:slim
 
+# Install build tools
+RUN apt-get update && apt-get install -y gcc libc-dev
+
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 RUN pip install gunicorn pymysql cryptography
